@@ -64,9 +64,9 @@ public class RestaurantController {
             RestaurantDetailsResponseAddress restaurantDetailsResponseAddress = new RestaurantDetailsResponseAddress()
                     .id(UUID.fromString(restaurantEntityDetails.getAddress().getUuid()))
                     .city(restaurantEntityDetails.getAddress().getCity())
-                    .flatBuildingName(restaurantEntityDetails.getAddress().getFlatBuildingNumber())
+                    .flatBuildingName(restaurantEntityDetails.getAddress().getFlatBuilNumber())
                     .locality(restaurantEntityDetails.getAddress().getLocality())
-                    .pincode(restaurantEntityDetails.getAddress().getPincode())
+                    .pincode(restaurantEntityDetails.getAddress().getPinCode())
                     .state(restaurantDetailsResponseAddressState);
 
             //Creating RestaurantList to add to list of RestaurantList
