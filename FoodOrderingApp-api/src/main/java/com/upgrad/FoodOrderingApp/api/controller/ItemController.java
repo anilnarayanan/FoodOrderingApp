@@ -22,28 +22,27 @@ public class ItemController {
     @Autowired
     private ItemEntity ItemEntity;
 
-    // Method To Get Top 5 Items by Popularity Based on the number of times that item was ordered
+    // Method To Get Top 5 Items by Popularity Based on the number of times that item was Ordered
     @RequestMapping(method = RequestMethod.GET, path = "/item/restaurant/{restaurant_id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<ItemListResponse>> getTopFiveItemForRestaurent(@PathVariable("restaurant_id") final String restaurantId ) throws RestaurantNotFoundException{
+        int itemListCount = 0;
+        List<ItemEntity> allTopItems = itemService.getMostOrderedItems(restaurantId);
+        ItemListResponse itemListResponse = new ItemListResponse();
 
-        final List<ItemEntity> allTopFiveItems = itemService.getTopFiveItems(restaurantId);
 
-        //toggle with model used in <> - already used -  ItemList, ItemListResponse ,ItemQuantityResponse
-        List<ItemListResponse> responseTopFiveItems = new ArrayList<>();
-
-        for (ItemEntity n : allTopFiveItems) {
-            // toggle with model instantiated - already used  - ItemListResponse,ItemQuantityResponse already used
-            ItemListResponse item = new ItemListResponse();
-
-                    // Needs work - uncomment after finding the right response modal
-                    /*item.setItem(n.getId());
-                    item.setItemName(n.getItemName();
-                    item.setPrice(n.getPrice());
-                    item.setItemType(n.getType());*/
-            responseTopFiveItems.add(item);
+        for (ItemEntity n : allTopItems) {
+            ItemList itemList = new ItemList()
+                    .id(UUID.fromString(itemEntity.getUuid()))
+                    .itemName(itemEntity.getItemName())
+                    .price(itemEntity.getPrice())
+                    .itemType(ItemList.ItemTypeEnum.fromValue(itemEntity.getType().getValue()));
+                itemListCount++;
+            if (itemListCount <= 5) {
+                itemListResponse.add(itemList);
+            }
         }
-        //toggle with the model in <>
-        return new ResponseEntity<List<ItemListResponse>>(responseTopFiveItems, HttpStatus.OK);
+
+        return new ResponseEntity<List<ItemListResponse>>(itemListResponse, HttpStatus.OK);
     }
 
 }
