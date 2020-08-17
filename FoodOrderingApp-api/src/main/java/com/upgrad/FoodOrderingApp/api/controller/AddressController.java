@@ -19,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -67,8 +68,8 @@ public class AddressController {
         AddressEntity addressCommittedEntity = addressService.saveAddress(addressEntity, stateEntity);
         addressService.saveCustomerAddressEntity(addressCommittedEntity, customerEntity);
         SaveAddressResponse saveAddressResponse = new SaveAddressResponse()
-                                                    .id(addressCommittedEntity.getUuid())
-                                                    .status("ADDRESS SUCCESSFULLY REGISTERED");
+                .id(addressCommittedEntity.getUuid())
+                .status("ADDRESS SUCCESSFULLY REGISTERED");
         return new ResponseEntity<SaveAddressResponse>(saveAddressResponse, HttpStatus.CREATED);
     }
 
@@ -107,10 +108,11 @@ public class AddressController {
         List<StateEntity> stateEntities = addressService.getAllStates();
         if (!stateEntities.isEmpty()) {
             List<StatesList> statesLists = new LinkedList<>();
-            stateEntities.forEach(stateEntity -> { StatesList statesList = new StatesList()
-                                                    .id(UUID.fromString(stateEntity.getUuid()))
-                                                    .stateName(stateEntity.getStateName());
-            statesLists.add(statesList);
+            stateEntities.forEach(stateEntity -> {
+                StatesList statesList = new StatesList()
+                        .id(UUID.fromString(stateEntity.getUuid()))
+                        .stateName(stateEntity.getStateName());
+                statesLists.add(statesList);
             });
             statesListResponse = new StatesListResponse().states(statesLists);
             return new ResponseEntity<StatesListResponse>(statesListResponse, HttpStatus.OK);
@@ -118,5 +120,35 @@ public class AddressController {
         return new ResponseEntity<StatesListResponse>(new StatesListResponse(), HttpStatus.OK);
     }
 
+
+    /**
+     * Fetches list of all customer addresses.
+     *
+     * @param authorization
+     * @return Address list
+     * @throws AuthorizationFailedException
+     */
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.GET, path = "/address/customer", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<AddressListResponse> getAllSavedAddress(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
+
+        AddressListResponse addressListResponse;
+        CustomerEntity customerEntity;
+        List<AddressList> addressLists;
+        List<AddressEntity> addressEntities;
+
+        String bearerToken = authorization.split("Bearer ")[1];
+        customerEntity = customerService.getCustomer(bearerToken);
+        addressEntities = addressService.getAllAddress(customerEntity);
+        Collections.reverse(addressEntities);
+        addressLists = new LinkedList<>();
+        addressEntities.forEach(addressEntity -> {
+            AddressListState addressListState = new AddressListState().stateName(addressEntity.getState().getStateName()).id(UUID.fromString(addressEntity.getState().getUuid()));
+            AddressList addressList = new AddressList().id(UUID.fromString(addressEntity.getUuid())).city(addressEntity.getCity()).flatBuildingName(addressEntity.getFlatBuilNo()).locality(addressEntity.getLocality()).pincode(addressEntity.getPincode()).state(addressListState);
+            addressLists.add(addressList);
+        });
+        addressListResponse = new AddressListResponse().addresses(addressLists);
+        return new ResponseEntity<AddressListResponse>(addressListResponse, HttpStatus.OK);
+    }
 
 }

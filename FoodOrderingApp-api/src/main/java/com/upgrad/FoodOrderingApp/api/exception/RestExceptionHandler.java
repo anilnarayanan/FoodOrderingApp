@@ -54,8 +54,9 @@ public class RestExceptionHandler {
                 .message(exc.getErrorMessage()),
                 HttpStatus.NOT_FOUND);
     }
+
     @ExceptionHandler(CouponNotFoundException.class)
-    public ResponseEntity<ErrorResponse> couponNotFoundException(CouponNotFoundException exc ,WebRequest request) {
+    public ResponseEntity<ErrorResponse> couponNotFoundException(CouponNotFoundException exc, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(new ErrorResponse()
                 .code(exc.getCode())
                 .message(exc.getErrorMessage()),
@@ -63,7 +64,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(InvalidRatingException.class)
-    public ResponseEntity<ErrorResponse> invalidRatingException(InvalidRatingException exc ,WebRequest request) {
+    public ResponseEntity<ErrorResponse> invalidRatingException(InvalidRatingException exc, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(new ErrorResponse()
                 .code(exc.getCode())
                 .message(exc.getErrorMessage()),
@@ -71,7 +72,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(SaveAddressException.class)
-    public ResponseEntity<ErrorResponse> saveAddressException(SaveAddressException exc ,WebRequest request){
+    public ResponseEntity<ErrorResponse> saveAddressException(SaveAddressException exc, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(new ErrorResponse()
                 .code(exc.getCode())
                 .message(exc.getErrorMessage()),
@@ -79,7 +80,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(AddressNotFoundException.class)
-    public ResponseEntity<ErrorResponse> addressNotFoundException(AddressNotFoundException exc ,WebRequest request) {
+    public ResponseEntity<ErrorResponse> addressNotFoundException(AddressNotFoundException exc, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(new ErrorResponse()
                 .code(exc.getCode())
                 .message(exc.getErrorMessage()),
