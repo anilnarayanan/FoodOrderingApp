@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "orders")
@@ -59,6 +60,9 @@ public class OrdersEntity implements Serializable {
     private CustomerEntity customer;
 
     public OrdersEntity() {
+    }
+
+    public OrdersEntity(String orderId, double v, CouponEntity couponEntity, double v1, Date orderDate, PaymentEntity paymentEntity, CustomerEntity customerEntity, AddressEntity addressEntity, RestaurantEntity restaurantEntity) {
     }
 
     public Integer getId() {

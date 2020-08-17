@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bd6e9e27-adf4-4817-a5f3-e3b30253c0ae" name="Default Changelist" comment="Fixed test bugs in RestaurantController and CategoryController.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/FoodOrderingApp-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/FoodOrderingApp-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/FoodOrderingApp-api.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/ItemControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/OrderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/test/java/com/upgrad/FoodOrderingApp/api/controller/OrderControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/AddressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/AddressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-db/FoodOrderingApp-db.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-db/FoodOrderingApp-db.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/FoodOrderingApp-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/FoodOrderingApp-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-db/FoodOrderingApp-db.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/FoodOrderingApp-service.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/target/classes/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,7 @@
       <recent name="com.upgrad.FoodOrderingApp.service.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressControllerTest">
+  <component name="RunManager" selected="JUnit.PaymentControllerTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -103,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FoodOrderingApp-api" />
       <extension name="coverage">
         <pattern>
@@ -112,37 +111,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.CategoryControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FoodOrderingApp-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.CustomerControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FoodOrderingApp-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.OrderControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.ItemControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,13 +132,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RestaurantControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FoodOrderingApp-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.FoodOrderingApp.api.controller.RestaurantControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.upgrad.FoodOrderingApp.api.controller in FoodOrderingApp-api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FoodOrderingApp-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.FoodOrderingApp.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.FoodOrderingApp.api.controller" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AddressControllerTest" />
-        <item itemvalue="JUnit.OrderControllerTest" />
-        <item itemvalue="JUnit.CategoryControllerTest" />
-        <item itemvalue="JUnit.CustomerControllerTest" />
         <item itemvalue="JUnit.PaymentControllerTest" />
+        <item itemvalue="JUnit.RestaurantControllerTest" />
+        <item itemvalue="JUnit.AddressControllerTest" />
+        <item itemvalue="JUnit.ItemControllerTest" />
+        <item itemvalue="JUnit.com.upgrad.FoodOrderingApp.api.controller in FoodOrderingApp-api" />
       </list>
     </recent_temporary>
   </component>
@@ -184,6 +182,8 @@
       <workItem from="1597330967083" duration="7140000" />
       <workItem from="1597457514556" duration="58459000" />
       <workItem from="1597681140104" duration="1670000" />
+      <workItem from="1597686709592" duration="48000" />
+      <workItem from="1597686833001" duration="260000" />
     </task>
     <task id="LOCAL-00001" summary="Bugs fixed.">
       <created>1597335889455</created>
@@ -354,25 +354,25 @@
     </state>
     <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.957@0.23.1680.957" timestamp="1597678080127" />
     <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.958@0.23.1680.958" timestamp="1597381277080" />
-    <state width="1638" height="374" key="GridCell.Tab.0.bottom" timestamp="1597682720928">
+    <state width="1638" height="374" key="GridCell.Tab.0.bottom" timestamp="1597687057899">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="374" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1597682720928" />
+    <state width="1638" height="374" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1597687057899" />
     <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.958@0.23.1680.958" timestamp="1597381244368" />
-    <state width="1638" height="374" key="GridCell.Tab.0.center" timestamp="1597682720927">
+    <state width="1638" height="374" key="GridCell.Tab.0.center" timestamp="1597687057898">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="374" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1597682720927" />
+    <state width="1638" height="374" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1597687057898" />
     <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.958@0.23.1680.958" timestamp="1597381244367" />
-    <state width="1638" height="374" key="GridCell.Tab.0.left" timestamp="1597682720927">
+    <state width="1638" height="374" key="GridCell.Tab.0.left" timestamp="1597687057898">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="374" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1597682720927" />
+    <state width="1638" height="374" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1597687057898" />
     <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.958@0.23.1680.958" timestamp="1597381244365" />
-    <state width="1638" height="374" key="GridCell.Tab.0.right" timestamp="1597682720927">
+    <state width="1638" height="374" key="GridCell.Tab.0.right" timestamp="1597687057899">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="374" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1597682720927" />
+    <state width="1638" height="374" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1597687057899" />
     <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.958@0.23.1680.958" timestamp="1597381244367" />
     <state width="1638" height="258" key="GridCell.Tab.1.bottom" timestamp="1597677708251">
       <screen x="0" y="23" width="1680" height="957" />
