@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd6e9e27-adf4-4817-a5f3-e3b30253c0ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/OrderItemDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CategoryItemDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/RestaurantItemDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/RestaurantItemEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/RestaurantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/businness/RestaurantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CouponDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/CouponDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/PaymentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/PaymentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CouponEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CouponEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/RestaurantDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/dao/RestaurantDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CategoryItemEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/CategoryItemEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/OrdersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/PaymentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/PaymentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/RestaurantEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-service/src/main/java/com/upgrad/FoodOrderingApp/service/entity/RestaurantEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +68,10 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.upgrad.FoodOrderingApp.api.controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upgrad.FoodOrderingApp.service.dao" />
+      <recent name="com.upgrad.FoodOrderingApp.service.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.FoodOrderingAppApiApplication">
@@ -264,7 +265,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597611080351</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Incorporating order controller.">
+      <created>1597666241845</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1597666241845</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Incorporating order controller.">
+      <created>1597666349226</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1597666349226</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,17 +294,18 @@
     <MESSAGE value="Fixed merged conflicts." />
     <MESSAGE value="Included additional features and fixed attribute names of classes to bring them in line with test cases." />
     <MESSAGE value="Incorporated Item and Order components partially in the code base." />
-    <option name="LAST_COMMIT_MESSAGE" value="Incorporated Item and Order components partially in the code base." />
+    <MESSAGE value="Incorporating order controller." />
+    <option name="LAST_COMMIT_MESSAGE" value="Incorporating order controller." />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1480" height="757" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1597603047489">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="100" y="123" width="1480" height="757" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1680.957@0.23.1680.957" timestamp="1597603047489" />
-    <state x="653" y="192" key="#com.intellij.ide.util.MemberChooser" timestamp="1597663393117">
+    <state x="653" y="192" key="#com.intellij.ide.util.MemberChooser" timestamp="1597668348858">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="653" y="192" key="#com.intellij.ide.util.MemberChooser/0.23.1680.957@0.23.1680.957" timestamp="1597663393117" />
+    <state x="653" y="192" key="#com.intellij.ide.util.MemberChooser/0.23.1680.957@0.23.1680.957" timestamp="1597668348858" />
     <state x="549" y="377" width="581" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597586163590">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
@@ -298,10 +314,10 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.957@0.23.1680.957" timestamp="1597587407820" />
-    <state x="319" y="77" key="CommitChangelistDialog2" timestamp="1597611080168">
+    <state x="319" y="77" key="CommitChangelistDialog2" timestamp="1597666349058">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.957@0.23.1680.957" timestamp="1597611080168" />
+    <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.957@0.23.1680.957" timestamp="1597666349058" />
     <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.958@0.23.1680.958" timestamp="1597381277080" />
     <state width="1638" height="258" key="GridCell.Tab.0.bottom" timestamp="1597632809667">
       <screen x="0" y="23" width="1680" height="957" />
@@ -363,19 +379,23 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="378" y="163" key="Maven.ArtifactSearchDialog/0.23.1680.957@0.23.1680.957" timestamp="1597605931934" />
+    <state x="478" y="270" key="MultipleFileMergeDialog" timestamp="1597666277926">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="478" y="270" key="MultipleFileMergeDialog/0.23.1680.957@0.23.1680.957" timestamp="1597666277926" />
     <state x="328" y="83" key="SettingsEditor" timestamp="1597605510824">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="328" y="83" key="SettingsEditor/0.23.1680.957@0.23.1680.957" timestamp="1597605510824" />
-    <state x="440" y="241" key="Vcs.Push.Dialog.v2" timestamp="1597611089134">
+    <state x="440" y="241" key="Vcs.Push.Dialog.v2" timestamp="1597666355613">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.957@0.23.1680.957" timestamp="1597611089134" />
+    <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.957@0.23.1680.957" timestamp="1597666355613" />
     <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.958@0.23.1680.958" timestamp="1597381452670" />
-    <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597608416603">
+    <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597666260695">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.957@0.23.1680.957" timestamp="1597608416603" />
+    <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.957@0.23.1680.957" timestamp="1597666260695" />
     <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.958@0.23.1680.958" timestamp="1597381265918" />
     <state x="246" y="244" width="1188" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597587686343">
       <screen x="0" y="23" width="1680" height="957" />

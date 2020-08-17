@@ -9,6 +9,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "category_item")
+@NamedQueries({
+        @NamedQuery(name = "getItemsByCategory",query = "SELECT cie FROM CategoryItemEntity cie WHERE cie.categoryId = :categoryId ORDER BY LOWER(cie.itemId.itemName) ASC")
+})
 public class CategoryItemEntity implements Serializable {
 
     @Id
@@ -27,4 +30,29 @@ public class CategoryItemEntity implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     private CategoryEntity categoryId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public ItemEntity getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(ItemEntity itemId) {
+        this.itemId = itemId;
+    }
+
+    public CategoryEntity getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(CategoryEntity categoryId) {
+        this.categoryId = categoryId;
+    }
+
 }

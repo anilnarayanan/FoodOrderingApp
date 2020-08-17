@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 @Entity
 @Table(name="restaurant")
 @NamedQueries({
@@ -45,7 +44,7 @@ public class RestaurantEntity implements Serializable {
 
     @Column(name = "customer_rating")
     @NotNull
-    private Integer customerrating;
+    private double customerrating;
 
     @Column(name = "average_price_for_two")
     @NotNull
@@ -93,11 +92,11 @@ public class RestaurantEntity implements Serializable {
         this.photourl = photourl;
     }
 
-    public Integer getCustomerRating() {
+    public double getCustomerRating() {
         return customerrating;
     }
 
-    public void setCustomerRating(Integer customerrating) {
+    public void setCustomerRating(double customerrating) {
         this.customerrating = customerrating;
     }
 
