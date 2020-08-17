@@ -3,8 +3,10 @@ package com.upgrad.FoodOrderingApp.service.businness;
 import com.upgrad.FoodOrderingApp.service.dao.CouponDAO;
 import com.upgrad.FoodOrderingApp.service.dao.CustomerDao;
 import com.upgrad.FoodOrderingApp.service.dao.OrderDAO;
+import com.upgrad.FoodOrderingApp.service.dao.OrderItemDAO;
 import com.upgrad.FoodOrderingApp.service.entity.CouponEntity;
 import com.upgrad.FoodOrderingApp.service.entity.CustomerEntity;
+import com.upgrad.FoodOrderingApp.service.entity.OrderItemEntity;
 import com.upgrad.FoodOrderingApp.service.entity.OrdersEntity;
 import com.upgrad.FoodOrderingApp.service.exception.CouponNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class OrderService {
 
     @Autowired
     CustomerDao customerDao;
+
+    @Autowired
+    OrderItemDAO orderItemDAO;
 
     /**
      * Fetch coupon details by coupon name
@@ -60,4 +65,47 @@ public class OrderService {
         return ordersEntityList;
     }
 
+    /**
+     * Save order
+     *
+     * @param ordersEntity
+     * @return
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public OrdersEntity saveOrder(OrdersEntity ordersEntity) {
+
+        OrdersEntity savedOrderEntity = orderDAO.saveOrder(ordersEntity);
+        return savedOrderEntity;
+    }
+
+    /**
+     * Saves orderItemEntity to DB
+     *
+     * @param orderItemEntity
+     * @return
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public OrderItemEntity saveOrderItem(OrderItemEntity orderItemEntity) {
+
+        OrderItemEntity savedOrderItemEntity = orderItemDAO.saveOrderItem(orderItemEntity);
+        return savedOrderItemEntity;
+    }
+
+    /**
+     * Fetch coupon by coupon Id
+     *
+     * @param couponId
+     * @return
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public CouponEntity getCouponByCouponId(String couponId) throws CouponNotFoundException {
+
+        CouponEntity couponEntity = couponDAO.getCouponByCouponId(couponId);
+        if (couponEntity == null) {
+            throw new CouponNotFoundException("CPF-002", "No coupon by this id");
+        } else {
+            return couponEntity;
+        }
+
+    }
 }

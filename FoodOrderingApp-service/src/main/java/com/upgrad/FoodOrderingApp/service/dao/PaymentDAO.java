@@ -9,16 +9,36 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class PaymentDAO{
+public class PaymentDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
 
+    /**
+     * Fetch payment methods
+     *
+     * @return
+     */
     public List<PaymentEntity> getAllPaymentMethods() {
         try {
-            List<PaymentEntity> paymentEntities =entityManager.createNamedQuery("getAllPaymentMethods", PaymentEntity.class).getResultList();
+            List<PaymentEntity> paymentEntities = entityManager.createNamedQuery("getAllPaymentMethods", PaymentEntity.class).getResultList();
             return paymentEntities;
-        }catch (NoResultException nre){
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    /**
+     * Fetch payment details by UUID
+     *
+     * @param paymentId
+     * @return
+     */
+    public PaymentEntity getPaymentByUUID(String paymentId) {
+        try {
+            PaymentEntity paymentEntity = entityManager.createNamedQuery("getPaymentByUUID", PaymentEntity.class).setParameter("uuid", paymentId).getSingleResult();
+            return paymentEntity;
+        } catch (NoResultException nre) {
             return null;
         }
     }

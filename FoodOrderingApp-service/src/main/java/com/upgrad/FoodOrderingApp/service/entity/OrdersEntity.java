@@ -29,8 +29,9 @@ public class OrdersEntity implements Serializable {
     @NotNull
     private Integer bill;
 
-    @Column(name = "coupon_id")
-    private Integer couponId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "coupon_id")
+    private CouponEntity couponId;
 
     @Column(name = "discount")
     private Integer discount;
@@ -84,14 +85,6 @@ public class OrdersEntity implements Serializable {
         this.bill = bill;
     }
 
-    public Integer getCouponId() {
-        return couponId;
-    }
-
-    public void setCouponId(Integer couponId) {
-        this.couponId = couponId;
-    }
-
     public Integer getDiscount() {
         return discount;
     }
@@ -138,5 +131,13 @@ public class OrdersEntity implements Serializable {
 
     public void setCustomer(CustomerEntity customer) {
         this.customer = customer;
+    }
+
+    public CouponEntity getCoupon() {
+        return couponId;
+    }
+
+    public void setCoupon(CouponEntity coupon) {
+        this.couponId = coupon;
     }
 }

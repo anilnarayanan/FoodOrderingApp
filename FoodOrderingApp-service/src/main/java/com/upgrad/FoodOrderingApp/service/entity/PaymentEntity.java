@@ -6,12 +6,12 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "payment",uniqueConstraints = {@UniqueConstraint(columnNames = {"uuid"})})
+@Table(name = "payment")
 @NamedQueries({
-        @NamedQuery(name = "getAllPaymentMethods",query = "SELECT p FROM PaymentEntity p")
+        @NamedQuery(name = "getAllPaymentMethods", query = "SELECT p FROM PaymentEntity p"),
+        @NamedQuery(name = "getPaymentByUUID", query = "SELECT p FROM PaymentEntity p WHERE p.uuid = :uuid")
 })
 public class PaymentEntity implements Serializable {
-
 
     @Id
     @Column(name = "id")
@@ -27,7 +27,7 @@ public class PaymentEntity implements Serializable {
     @Size(max = 255)
     private String paymentName;
 
-    public PaymentEntity(){
+    public PaymentEntity() {
 
     }
 

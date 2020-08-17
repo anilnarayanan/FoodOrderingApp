@@ -46,4 +46,15 @@ public class OrderDAO {
         }
         return ordersEntityList;
     }
+
+    /**
+     * Persist order to the DB
+     *
+     * @param ordersEntity
+     * @return
+     */
+    public OrdersEntity saveOrder(OrdersEntity ordersEntity) {
+        entityManager.persist(ordersEntity);
+        return ordersEntity;
+    }
 }

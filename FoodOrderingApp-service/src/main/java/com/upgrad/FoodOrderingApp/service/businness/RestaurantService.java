@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -31,15 +30,15 @@ public class RestaurantService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     //Method to get restaurants list by rating
-    public List<RestaurantEntity> getAllRestaurantsByRating(){
+    public List<RestaurantEntity> getAllRestaurantsByRating() {
         List<RestaurantEntity> restaurantListByRating = restaurantDAO.getAllRestaurantsByRating();
         return restaurantListByRating;
     }
 
     //Method to get restaurants list by Name entered by user. If restaurant name field entered by the customer is empty, throw RestaurantNotFoundException
-    public List<RestaurantEntity> getRestaurantsByName(String restaurantName)throws RestaurantNotFoundException{
-        if(restaurantName == null || restaurantName.isEmpty()){
-            throw new RestaurantNotFoundException("RNF-003","Restaurant name field should not be empty");
+    public List<RestaurantEntity> getRestaurantsByName(String restaurantName) throws RestaurantNotFoundException {
+        if (restaurantName == null || restaurantName.isEmpty()) {
+            throw new RestaurantNotFoundException("RNF-003", "Restaurant name field should not be empty");
         }
         List<RestaurantEntity> restaurantNamesList = restaurantDAO.getRestaurantsByName(restaurantName);
         return restaurantNamesList;
@@ -48,14 +47,14 @@ public class RestaurantService {
     //Method to get restaurants list by Name based on category id
     public List<RestaurantEntity> getRestaurantsByCategory(String categoryId) throws CategoryNotFoundException {
 
-        if(categoryId == null || categoryId.isEmpty()){
-            throw new CategoryNotFoundException("CNF-001","Category id field should not be empty");
+        if (categoryId == null || categoryId.isEmpty()) {
+            throw new CategoryNotFoundException("CNF-001", "Category id field should not be empty");
         }
 
         CategoryEntity categoryEntity = categoryDAO.getCategoryByUUId(categoryId);
 
-        if(categoryEntity == null){
-            throw new CategoryNotFoundException("CNF-002","No category by this id");
+        if (categoryEntity == null) {
+            throw new CategoryNotFoundException("CNF-002", "No category by this id");
         }
 
         //Calls getRestaurantsByCategory of restaurantCategoryDao to get list of RestaurantCategoryEntity
@@ -69,5 +68,21 @@ public class RestaurantService {
         return restaurantEntities;
     }
 
-
+    /**
+     * @param restaurantId
+     * @return
+     * @throws RestaurantNotFoundException
+     */
+    public RestaurantEntity restaurantByUUID(String restaurantId) throws RestaurantNotFoundException {
+        RestaurantEntity restaurantEntity;
+        if (restaurantId == null || restaurantId.isEmpty()) {
+            throw new RestaurantNotFoundException("RNF-002", "Restaurant id field should not be empty");
+        }
+        restaurantEntity = restaurantDAO.getRestaurantByUuid(restaurantId);
+        if (restaurantEntity == null) {
+            throw new RestaurantNotFoundException("RNF-001", "No restaurant by this id");
+        } else {
+            return restaurantEntity;
+        }
+    }
 }
