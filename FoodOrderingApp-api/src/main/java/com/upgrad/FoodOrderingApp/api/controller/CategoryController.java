@@ -22,41 +22,52 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
-    @RequestMapping(method = RequestMethod.GET, path = "/category", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+    //This Request method is a GET request and will not require any parameters from the user.
+    //It retrieves all the categories present in the database, ordered by their name
+    @RequestMapping(method = RequestMethod.GET, path = "category", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<CategoriesListResponse> getAllCategories() {
+        //Calling getAllCategoriesOrderedByName that returns the list of category entities
         List<CategoryEntity> categoryEntities = categoryService.getAllCategoriesOrderedByName();
-        if(!categoryEntities.isEmpty()) {
+        if(!categoryEntities.isEmpty()) { //Checking that the Category Entities exists
+            //Creating the categoryListResponses list for response
             List<CategoryListResponse> categoryListResponses = new LinkedList<>();
+            //Iterating each category entity and adding the categoryListResponse to the categoryListResponses list
             categoryEntities.forEach(categoryEntity -> {
                 CategoryListResponse categoryListResponse = new CategoryListResponse()
                         .categoryName(categoryEntity.getCategoryName())
                         .id(UUID.fromString(categoryEntity.getUuid()));
                 categoryListResponses.add(categoryListResponse);
             });
+            //Adding all the categoryListResponses list to display in response
             CategoriesListResponse categoriesListResponse = new CategoriesListResponse().categories(categoryListResponses);
             return new ResponseEntity<CategoriesListResponse>(categoriesListResponse, HttpStatus.OK);
         }
         else{
+            //If Category Entities doesn't exist, returns empty
             return new ResponseEntity<CategoriesListResponse>(new CategoriesListResponse(), HttpStatus.OK);
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET,path = "/category/{category_id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    //This GET Request Method is to fetch all items within the category id entered by user. Throws exception if category id entered doesn't exist
+    @RequestMapping(method = RequestMethod.GET,path = "category/{category_id}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<CategoryDetailsResponse> getCategoryById(@PathVariable(value = "category_id")final String categoryUUID) throws CategoryNotFoundException {
         CategoryEntity categoryEntity = categoryService.getCategoryById(categoryUUID);
         return categoryListWithItemsList(categoryEntity);
     }
 
-    @RequestMapping(method = RequestMethod.GET,path = "/category/",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    //This GET Request Method is return empty list when category id is not entered by user
+    @RequestMapping(method = RequestMethod.GET,path = "category/",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<CategoryDetailsResponse> getCategoryByIdNULL() throws CategoryNotFoundException {
         CategoryEntity categoryEntity = categoryService.getCategoryById(null);
         return categoryListWithItemsList(categoryEntity);
     }
 
+    //Common function that returns the CategoryDetailsResponse with Categories and items associated with category
     private ResponseEntity<CategoryDetailsResponse> categoryListWithItemsList(CategoryEntity categoryEntity){
         List<ItemEntity> itemEntities = categoryEntity.getItems();
         List<ItemList> itemLists = new LinkedList<>();

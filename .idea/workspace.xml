@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd6e9e27-adf4-4817-a5f3-e3b30253c0ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/exception/RestExceptionHandler.java" afterDir="false" />
+    <list default="true" id="bd6e9e27-adf4-4817-a5f3-e3b30253c0ae" name="Default Changelist" comment="Fixed test bugs in RestaurantController and CategoryController.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/src/main/java/com/upgrad/FoodOrderingApp/api/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/FoodOrderingApp-api/target/classes/com/upgrad/FoodOrderingApp/api/controller/PaymentController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +69,7 @@
       <recent name="com.upgrad.FoodOrderingApp.service.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressControllerTest">
+  <component name="RunManager" selected="JUnit.PaymentControllerTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -155,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AddressControllerTest" />
-        <item itemvalue="JUnit.CategoryControllerTest" />
         <item itemvalue="JUnit.PaymentControllerTest" />
+        <item itemvalue="JUnit.CategoryControllerTest" />
+        <item itemvalue="JUnit.AddressControllerTest" />
         <item itemvalue="JUnit.RestaurantControllerTest" />
         <item itemvalue="JUnit.CategoryControllerTest.shouldGetCategoryById" />
       </list>
@@ -293,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597677799251</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed test bugs in RestaurantController and CategoryController.">
+      <created>1597678064673</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1597678064673</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,30 +342,30 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="578" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.957@0.23.1680.957" timestamp="1597673564429" />
-    <state x="319" y="77" key="CommitChangelistDialog2" timestamp="1597677798853">
+    <state x="319" y="77" key="CommitChangelistDialog2" timestamp="1597678080127">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.957@0.23.1680.957" timestamp="1597677798853" />
+    <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.957@0.23.1680.957" timestamp="1597678080127" />
     <state x="319" y="77" key="CommitChangelistDialog2/0.23.1680.958@0.23.1680.958" timestamp="1597381277080" />
-    <state width="1638" height="258" key="GridCell.Tab.0.bottom" timestamp="1597677752354">
+    <state width="1638" height="258" key="GridCell.Tab.0.bottom" timestamp="1597680749025">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="258" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1597677752354" />
+    <state width="1638" height="258" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1597680749025" />
     <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.958@0.23.1680.958" timestamp="1597381244368" />
-    <state width="1638" height="258" key="GridCell.Tab.0.center" timestamp="1597677752353">
+    <state width="1638" height="258" key="GridCell.Tab.0.center" timestamp="1597680749024">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="258" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1597677752353" />
+    <state width="1638" height="258" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1597680749024" />
     <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.958@0.23.1680.958" timestamp="1597381244367" />
-    <state width="1638" height="258" key="GridCell.Tab.0.left" timestamp="1597677752353">
+    <state width="1638" height="258" key="GridCell.Tab.0.left" timestamp="1597680749024">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="258" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1597677752353" />
+    <state width="1638" height="258" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1597680749024" />
     <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.958@0.23.1680.958" timestamp="1597381244365" />
-    <state width="1638" height="258" key="GridCell.Tab.0.right" timestamp="1597677752353">
+    <state width="1638" height="258" key="GridCell.Tab.0.right" timestamp="1597680749025">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state width="1638" height="258" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1597677752353" />
+    <state width="1638" height="258" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1597680749025" />
     <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.958@0.23.1680.958" timestamp="1597381244367" />
     <state width="1638" height="258" key="GridCell.Tab.1.bottom" timestamp="1597677708251">
       <screen x="0" y="23" width="1680" height="957" />
@@ -404,10 +415,10 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="328" y="83" key="SettingsEditor/0.23.1680.957@0.23.1680.957" timestamp="1597605510824" />
-    <state x="440" y="241" key="Vcs.Push.Dialog.v2" timestamp="1597677834027">
+    <state x="440" y="241" key="Vcs.Push.Dialog.v2" timestamp="1597678084140">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.957@0.23.1680.957" timestamp="1597677834027" />
+    <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.957@0.23.1680.957" timestamp="1597678084140" />
     <state x="440" y="241" key="Vcs.Push.Dialog.v2/0.23.1680.958@0.23.1680.958" timestamp="1597381452670" />
     <state x="638" y="422" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597675716018">
       <screen x="0" y="23" width="1680" height="957" />
