@@ -11,14 +11,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "address")
 @NamedQueries({
-//        @NamedQuery(
-//                name = "deletedSavedAddresses",
-//                query = "DELETE FROM address a WHERE a.uuid LIKE :uuid"
-//        ),
-//        @NamedQuery(
-//                name = "getStateByUUID",
-//                query = "SELECT a FROM address a WHERE a.uuid LIKE :uuid"
-//        ),
         @NamedQuery(name = "getAddressByUuid", query = "SELECT a from AddressEntity a where a.uuid = :uuid")
 })
 
@@ -61,8 +53,7 @@ public class AddressEntity implements Serializable {
         active = 1;
     }
 
-    public AddressEntity(Integer id, @NotNull @Size(max = 200) String uuid, @Size(max = 255) String flatBuilNumber, @Size(max = 255) String locality, @Size(max = 30) String city, @Size(max = 30) String pinCode, StateEntity state, int active) {
-        this.id = id;
+    public AddressEntity(@NotNull @Size(max = 200) String uuid, @Size(max = 255) String flatBuilNumber, @Size(max = 255) String locality, @Size(max = 30) String city, @Size(max = 30) String pinCode, StateEntity state, int active) {
         this.uuid = uuid;
         this.flatBuilNumber = flatBuilNumber;
         this.locality = locality;
@@ -70,6 +61,13 @@ public class AddressEntity implements Serializable {
         this.pinCode = pinCode;
         this.state = state;
         this.active = active;
+    }
+
+    public AddressEntity(String addressId, String s, String someLocality, String someCity, String s1, StateEntity stateEntity) {
+        this.locality = someLocality;
+        this.city = someCity;
+        this.state = stateEntity;
+
     }
 
     public Integer getId() {

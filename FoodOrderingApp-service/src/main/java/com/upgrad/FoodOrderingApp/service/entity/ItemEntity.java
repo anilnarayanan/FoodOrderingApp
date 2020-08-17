@@ -1,6 +1,6 @@
 package com.upgrad.FoodOrderingApp.service.entity;
 
-import com.upgrad.FoodOrderingApp.service.type.ItemType;
+import com.upgrad.FoodOrderingApp.service.common.ItemType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
