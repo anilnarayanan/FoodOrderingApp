@@ -63,11 +63,13 @@ public class AddressEntity implements Serializable {
         this.active = active;
     }
 
-    public AddressEntity(String addressId, String s, String someLocality, String someCity, String s1, StateEntity stateEntity) {
-        this.locality = someLocality;
-        this.city = someCity;
+    public AddressEntity(String uuid, String flatBuilNumber, String locality, String city, String pinCode, StateEntity stateEntity) {
+        this.uuid = uuid;
+        this.flatBuilNumber =flatBuilNumber;
+        this.locality = locality;
+        this.city = city;
+        this.pinCode = pinCode;
         this.state = stateEntity;
-
     }
 
     public Integer getId() {
