@@ -1,5 +1,4 @@
 package com.upgrad.FoodOrderingApp.service.entity;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -9,39 +8,34 @@ import java.io.Serializable;
 @Entity
 @Table(name = "restaurant_item")
 @NamedQueries({
-        @NamedQuery(name="getItemsByRestaurentId",query = "SELECT ri FROM RestaurantItemEntity ri WHERE ri.restaurant=:restaurant")
+        @NamedQuery(name = "getItemsByRestaurant",query = "SELECT rie FROM RestaurantItemEntity rie WHERE rie.restaurant = :restaurant")
 })
 public class RestaurantItemEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "restaurant_id")
-    private RestaurantEntity restaurant;
-
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "item_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @NotNull
     private ItemEntity item;
 
-    public long getId() {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restaurant_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @NotNull
+    private RestaurantEntity restaurant;
+
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public RestaurantEntity getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(RestaurantEntity restaurant) {
-        this.restaurant = restaurant;
     }
 
     public ItemEntity getItem() {
@@ -50,5 +44,13 @@ public class RestaurantItemEntity implements Serializable {
 
     public void setItem(ItemEntity item) {
         this.item = item;
+    }
+
+    public RestaurantEntity getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(RestaurantEntity restaurant) {
+        this.restaurant = restaurant;
     }
 }
