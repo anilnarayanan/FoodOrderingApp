@@ -49,12 +49,17 @@ public class OrderController {
             throws AuthorizationFailedException, CouponNotFoundException {
 
         String bearerToken = authorization.split("Bearer ")[1];
+        validateCoupon(couponName);
         CustomerEntity customerEntity = customerService.getCustomer(bearerToken);
         CouponEntity couponEntity = orderService.getCouponByCouponName(couponName);
         CouponDetailsResponse couponDetailsResponse = new CouponDetailsResponse().couponName(couponEntity.getCouponName()).id(UUID.fromString(couponEntity.getUuid())).percent(couponEntity.getPercent());
         return new ResponseEntity<CouponDetailsResponse>(couponDetailsResponse, HttpStatus.OK);
     }
-
+    private void validateCoupon(String couponName) throws CouponNotFoundException {
+        if (couponName == null || couponName == "") {
+            throw new CouponNotFoundException("CPF-002", "Coupon name field should not be empty");
+        }
+    }
     /**
      *Fetch customer orders
      *
@@ -64,7 +69,7 @@ public class OrderController {
      * @throws AddressNotFoundException
      * @throws CouponNotFoundException
      */
-    @CrossOrigin
+    /*@CrossOrigin
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/order",
@@ -78,7 +83,6 @@ public class OrderController {
         String bearerToken = authorization.split("Bearer ")[1];
         customerEntity = customerService.getCustomer(bearerToken);
         ordersEntityList = orderService.getOrdersByCustomers(customerEntity.getUuid());
-
-
     }
+    */
 }
