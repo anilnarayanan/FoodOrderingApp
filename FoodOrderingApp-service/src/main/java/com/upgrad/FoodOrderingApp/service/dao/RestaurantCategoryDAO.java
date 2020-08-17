@@ -1,5 +1,6 @@
 package com.upgrad.FoodOrderingApp.service.dao;
 
+import com.upgrad.FoodOrderingApp.service.entity.CategoryEntity;
 import com.upgrad.FoodOrderingApp.service.entity.RestaurantCategoryEntity;
 import com.upgrad.FoodOrderingApp.service.entity.RestaurantEntity;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,15 @@ public class RestaurantCategoryDAO {
         } catch (NoResultException nre) {
             return null;
         }
+    }
 
+    //To get the list of RestaurantCategoryEntity from the db by category
+    public List<RestaurantCategoryEntity> getRestaurantsByCategory(CategoryEntity categoryDetail) {
+        try {
+            List<RestaurantCategoryEntity> restaurantCategoryEntity = entityManager.createNamedQuery("getRestaurantsByCategory",RestaurantCategoryEntity.class).setParameter("category",categoryDetail).getResultList();
+            return restaurantCategoryEntity;
+        }catch (NoResultException nre){
+            return null;
+        }
     }
 }

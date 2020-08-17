@@ -52,28 +52,23 @@ public class AddressController {
     public ResponseEntity<SaveAddressResponse> saveAddress(
             @RequestHeader("authorization") final String authorization,
             @RequestBody(required = false) SaveAddressRequest saveAddressRequest)
-            throws AuthorizationFailedException, AddressNotFoundException, SaveAddressException, SignUpRestrictedException, SaveAddressException {
+            throws AuthorizationFailedException, AddressNotFoundException, SignUpRestrictedException, SaveAddressException {
 
         AddressEntity addressEntity = new AddressEntity();
-        StateEntity stateEntity = new StateEntity();
+        StateEntity stateEntity;
         String bearerToken = authorization.split("Bearer ")[1];
         CustomerEntity customerEntity = customerService.getCustomer(bearerToken);
-
         addressEntity.setUuid(UUID.randomUUID().toString());
-        addressEntity.setFlatBuilNumber(saveAddressRequest.getFlatBuildingName());
+        addressEntity.setFlatBuilNo(saveAddressRequest.getFlatBuildingName());
         addressEntity.setLocality(saveAddressRequest.getLocality());
         addressEntity.setCity(saveAddressRequest.getCity());
-        addressEntity.setPinCode(saveAddressRequest.getPincode());
-
-//        validateAddressOnBoarding(addressEntity);
-
+        addressEntity.setPincode(saveAddressRequest.getPincode());
         stateEntity = addressService.getStateByUUID(saveAddressRequest.getStateUuid());
         AddressEntity addressCommittedEntity = addressService.saveAddress(addressEntity, stateEntity);
         addressService.saveCustomerAddressEntity(addressCommittedEntity, customerEntity);
-        SaveAddressResponse saveAddressResponse =
-                new SaveAddressResponse()
-                        .id(addressCommittedEntity.getUuid())
-                        .status("ADDRESS SUCCESSFULLY REGISTERED");
+        SaveAddressResponse saveAddressResponse = new SaveAddressResponse()
+                                                    .id(addressCommittedEntity.getUuid())
+                                                    .status("ADDRESS SUCCESSFULLY REGISTERED");
         return new ResponseEntity<SaveAddressResponse>(saveAddressResponse, HttpStatus.CREATED);
     }
 
@@ -85,7 +80,7 @@ public class AddressController {
      */
     @CrossOrigin
     @RequestMapping(
-            method = RequestMethod.PUT,
+            method = RequestMethod.DELETE,
             path = "/address/{address_id}",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<DeleteAddressResponse> deleteAddress(@RequestHeader("authorization") final String authorization, @PathVariable(value = "address_id") final String uuid) throws AuthorizationFailedException, AddressNotFoundException {
@@ -108,18 +103,16 @@ public class AddressController {
     @CrossOrigin
     @RequestMapping(method = RequestMethod.GET, path = "/states", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<StatesListResponse> getAllStates() {
-
+        StatesListResponse statesListResponse;
         List<StateEntity> stateEntities = addressService.getAllStates();
         if (!stateEntities.isEmpty()) {
             List<StatesList> statesLists = new LinkedList<>();
-            stateEntities.forEach(stateEntity -> {
-                StatesList statesList = new StatesList()
-                        .id(UUID.fromString(stateEntity.getUuid()))
-                        .stateName(stateEntity.getStateName());
-                statesLists.add(statesList);
+            stateEntities.forEach(stateEntity -> { StatesList statesList = new StatesList()
+                                                    .id(UUID.fromString(stateEntity.getUuid()))
+                                                    .stateName(stateEntity.getStateName());
+            statesLists.add(statesList);
             });
-
-            StatesListResponse statesListResponse = new StatesListResponse().states(statesLists);
+            statesListResponse = new StatesListResponse().states(statesLists);
             return new ResponseEntity<StatesListResponse>(statesListResponse, HttpStatus.OK);
         }
         return new ResponseEntity<StatesListResponse>(new StatesListResponse(), HttpStatus.OK);

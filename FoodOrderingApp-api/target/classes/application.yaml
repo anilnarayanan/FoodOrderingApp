@@ -1,6 +1,6 @@
 server:
   servlet:
-    port: 8081
+    port: 8080
     contextPath: /api
 
 spring:
@@ -10,9 +10,9 @@ spring:
 
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/restaurantdb
+    url: jdbc:postgresql://localhost:5432/restaurantdb
     username: postgres
-    password: Gopika@1227
+    password: password
 
   jpa:
     properties:

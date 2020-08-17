@@ -9,7 +9,8 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "orders")
 @NamedQueries({
-        @NamedQuery(name = "getOrdersByAddress", query = "SELECT o FROM OrdersEntity o WHERE o.address = :address")
+        @NamedQuery(name = "getOrdersByAddress", query = "SELECT o FROM OrdersEntity o WHERE o.address = :address"),
+        @NamedQuery(name = "getOrdersByCustomers", query = "SELECT o FROM OrdersEntity o WHERE o.customer = :customer ORDER BY o.date DESC")
 })
 public class OrdersEntity implements Serializable {
 
@@ -26,13 +27,14 @@ public class OrdersEntity implements Serializable {
 
     @Column(name = "bill")
     @NotNull
-    private Integer bill;
+    private Double bill;
 
-    @Column(name = "coupon_id")
-    private Integer couponId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "coupon_id")
+    private CouponEntity couponId;
 
     @Column(name = "discount")
-    private Integer discount;
+    private Double discount;
 
     @Column(name = "date")
     private Timestamp date;
@@ -75,27 +77,19 @@ public class OrdersEntity implements Serializable {
         this.uuid = uuid;
     }
 
-    public Integer getBill() {
+    public Double getBill() {
         return bill;
     }
 
-    public void setBill(Integer bill) {
+    public void setBill(Double bill) {
         this.bill = bill;
     }
 
-    public Integer getCouponId() {
-        return couponId;
-    }
-
-    public void setCouponId(Integer couponId) {
-        this.couponId = couponId;
-    }
-
-    public Integer getDiscount() {
+    public Double getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Integer discount) {
+    public void setDiscount(Double discount) {
         this.discount = discount;
     }
 
@@ -137,5 +131,13 @@ public class OrdersEntity implements Serializable {
 
     public void setCustomer(CustomerEntity customer) {
         this.customer = customer;
+    }
+
+    public CouponEntity getCoupon() {
+        return couponId;
+    }
+
+    public void setCoupon(CouponEntity coupon) {
+        this.couponId = coupon;
     }
 }

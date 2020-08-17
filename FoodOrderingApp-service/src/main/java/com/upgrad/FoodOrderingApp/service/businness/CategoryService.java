@@ -1,10 +1,12 @@
 package com.upgrad.FoodOrderingApp.service.businness;
 
+import com.upgrad.FoodOrderingApp.service.dao.CategoryDAO;
 import com.upgrad.FoodOrderingApp.service.dao.RestaurantCategoryDAO;
 import com.upgrad.FoodOrderingApp.service.dao.RestaurantDAO;
 import com.upgrad.FoodOrderingApp.service.entity.CategoryEntity;
 import com.upgrad.FoodOrderingApp.service.entity.RestaurantCategoryEntity;
 import com.upgrad.FoodOrderingApp.service.entity.RestaurantEntity;
+import com.upgrad.FoodOrderingApp.service.exception.CategoryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,11 @@ public class CategoryService {
     @Autowired
     private RestaurantDAO restaurantDAO;
     @Autowired
-    RestaurantCategoryDAO restaurantCategoryDao;
+    private RestaurantCategoryDAO restaurantCategoryDao;
+
+    @Autowired
+    private CategoryDAO categoryDAO;
+
     /* Method returns categories for a restaurant and returns list of categories. Its takes restaurantUuid as the input.
     If error throws exception with error code and error message.
     */
@@ -36,4 +42,24 @@ public class CategoryService {
         });
         return categoryList;
     }
+
+    public List<CategoryEntity> getAllCategoriesOrderedByName(){
+
+        List<CategoryEntity> categoryEntities = categoryDAO.getAllCategoriesOrderedByName();
+        return categoryEntities;
+    }
+
+    public CategoryEntity getCategoryById(String categoryUUID) throws CategoryNotFoundException {
+        if(categoryUUID == null || categoryUUID.isEmpty()){
+            throw new CategoryNotFoundException("CNF-001","Category id field should not be empty");
+        }
+        //Calls getCategoryByUuid of categoryDao to get CategoryEntity
+        CategoryEntity categoryEntity = categoryDAO.getCategoryByUUId(categoryUUID);
+
+        if(categoryEntity == null){ //Checking for categoryEntity to be null or empty to throw exception.
+            throw new CategoryNotFoundException("CNF-002","No category by this id");
+        }
+        return categoryEntity;
+    }
+
 }

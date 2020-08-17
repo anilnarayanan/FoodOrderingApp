@@ -7,16 +7,20 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "payment")
+@NamedQueries({
+        @NamedQuery(name = "getAllPaymentMethods", query = "SELECT p FROM PaymentEntity p"),
+        @NamedQuery(name = "getPaymentByUUID", query = "SELECT p FROM PaymentEntity p WHERE p.uuid = :uuid")
+})
 public class PaymentEntity implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "uuid")
-    @NotNull
     @Size(max = 200)
+    @NotNull
     private String uuid;
 
     @Column(name = "payment_name")
@@ -24,6 +28,12 @@ public class PaymentEntity implements Serializable {
     private String paymentName;
 
     public PaymentEntity() {
+
+    }
+
+    public PaymentEntity(String uuid, String paymentName) {
+        this.uuid = uuid;
+        this.paymentName = paymentName;
     }
 
     public Integer getId() {
@@ -48,14 +58,5 @@ public class PaymentEntity implements Serializable {
 
     public void setPaymentName(String paymentName) {
         this.paymentName = paymentName;
-    }
-
-    @Override
-    public String toString() {
-        return "PaymentEntity{" +
-                "id=" + id +
-                ", uuid='" + uuid + '\'' +
-                ", paymentName='" + paymentName + '\'' +
-                '}';
     }
 }

@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Table(name = "restaurant_category")
 @NamedQueries(
         {
-                @NamedQuery(name = "getRestaurantsByCategory", query = "select rc from RestaurantCategoryEntity rc where rc.category.id=:id"),
+                @NamedQuery(name = "getRestaurantsByCategory", query = "select rc from RestaurantCategoryEntity rc where rc.category = :category ORDER BY rc.restaurant.customerrating DESC"),
                 @NamedQuery(name = "getRestaurantByRestaurantEntity", query = "select rc from RestaurantCategoryEntity rc where rc.restaurant=:restaurant ORDER BY rc.category.categoryname ASC")
         })
 

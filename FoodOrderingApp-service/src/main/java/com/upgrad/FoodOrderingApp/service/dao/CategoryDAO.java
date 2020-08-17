@@ -25,16 +25,16 @@ public class CategoryDAO {
 
     public CategoryEntity getCategoryByUUId(final String categoryUUId){
         try {
-            return entityManager.createNamedQuery("getCategoryByUuid", CategoryEntity.class).setParameter("uuid", categoryUUId)
+            return entityManager.createNamedQuery("getCategoryByUUId", CategoryEntity.class).setParameter("uuid", categoryUUId)
                     .getSingleResult();
         } catch(NoResultException nre) {
             return null;
         }
     }
 
-    public List<CategoryEntity> getAllCategories(){
+    public List<CategoryEntity> getAllCategoriesOrderedByName(){
         try {
-            return entityManager.createNamedQuery("getAllCategories", CategoryEntity.class).getResultList();
+            return entityManager.createNamedQuery("getAllCategoriesOrderedByName", CategoryEntity.class).getResultList();
         } catch(NoResultException nre) {
             return null;
         }

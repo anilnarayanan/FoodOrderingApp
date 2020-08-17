@@ -4,25 +4,13 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-<<<<<<< HEAD
 import javax.validation.constraints.NotNull;
-=======
->>>>>>> master
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
-<<<<<<< HEAD
 @NamedQueries({
-//        @NamedQuery(
-//                name = "deletedSavedAddresses",
-//                query = "DELETE FROM address a WHERE a.uuid LIKE :uuid"
-//        ),
-//        @NamedQuery(
-//                name = "getStateByUUID",
-//                query = "SELECT a FROM address a WHERE a.uuid LIKE :uuid"
-//        ),
         @NamedQuery(name = "getAddressByUuid", query = "SELECT a from AddressEntity a where a.uuid = :uuid")
 })
 
@@ -34,32 +22,12 @@ public class AddressEntity implements Serializable {
 
     @Column(name = "uuid")
     @NotNull
-=======
-@NamedQueries(
-        {
-                @NamedQuery(name = "getAddressById", query = "select a from AddressEntity a where a.id=:id")
-        }
-)
-
-public class AddressEntity implements Serializable {
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "uuid")
->>>>>>> master
     @Size(max = 200)
     private String uuid;
 
     @Column(name = "flat_buil_number")
     @Size(max = 255)
-<<<<<<< HEAD
     private String flatBuilNumber;
-=======
-    private String flatBuildingNumber;
->>>>>>> master
 
     @Column(name = "locality")
     @Size(max = 255)
@@ -71,7 +39,6 @@ public class AddressEntity implements Serializable {
 
     @Column(name = "pincode")
     @Size(max = 30)
-<<<<<<< HEAD
     private String pinCode;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -85,17 +52,25 @@ public class AddressEntity implements Serializable {
     public AddressEntity() {
         active = 1;
     }
-=======
-    private String pincode;
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "state_id")
-    private StateEntity state;
+    public AddressEntity(@NotNull @Size(max = 200) String uuid, @Size(max = 255) String flatBuilNumber, @Size(max = 255) String locality, @Size(max = 30) String city, @Size(max = 30) String pinCode, StateEntity state, int active) {
+        this.uuid = uuid;
+        this.flatBuilNumber = flatBuilNumber;
+        this.locality = locality;
+        this.city = city;
+        this.pinCode = pinCode;
+        this.state = state;
+        this.active = active;
+    }
 
-    @Column(name = "active")
-    private Integer active;
->>>>>>> master
+    public AddressEntity(String uuid, String flatBuilNumber, String locality, String city, String pinCode, StateEntity stateEntity) {
+        this.uuid = uuid;
+        this.flatBuilNumber =flatBuilNumber;
+        this.locality = locality;
+        this.city = city;
+        this.pinCode = pinCode;
+        this.state = stateEntity;
+    }
 
     public Integer getId() {
         return id;
@@ -113,21 +88,13 @@ public class AddressEntity implements Serializable {
         this.uuid = uuid;
     }
 
-<<<<<<< HEAD
-    public String getFlatBuilNumber() {
+    public String getFlatBuilNo() {
         return flatBuilNumber;
     }
 
-    public void setFlatBuilNumber(String flatBuilNumber) {
-        this.flatBuilNumber = flatBuilNumber;
-=======
-    public String getFlatBuildingNumber() {
-        return flatBuildingNumber;
-    }
 
-    public void setFlatBuildingNumber(String flatBuildingNumber) {
-        this.flatBuildingNumber = flatBuildingNumber;
->>>>>>> master
+    public void setFlatBuilNo(String flatBuilNumber) {
+        this.flatBuilNumber = flatBuilNumber;
     }
 
     public String getLocality() {
@@ -146,21 +113,12 @@ public class AddressEntity implements Serializable {
         this.city = city;
     }
 
-<<<<<<< HEAD
-    public String getPinCode() {
+    public String getPincode() {
         return pinCode;
     }
 
-    public void setPinCode(String pincode) {
-        this.pinCode = pincode;
-=======
-    public String getPincode() {
-        return pincode;
-    }
-
     public void setPincode(String pincode) {
-        this.pincode = pincode;
->>>>>>> master
+        this.pinCode = pincode;
     }
 
     public StateEntity getState() {
@@ -171,7 +129,6 @@ public class AddressEntity implements Serializable {
         this.state = state;
     }
 
-<<<<<<< HEAD
     public int getActive() {
         return active;
     }
@@ -180,13 +137,3 @@ public class AddressEntity implements Serializable {
         this.active = active;
     }
 }
-=======
-    public Integer getActive() {
-        return active;
-    }
-
-    public void setActive(Integer active) {
-        this.active = active;
-    }
-}
->>>>>>> master
