@@ -28,6 +28,8 @@ public class ItemController {
 
     /**
      *
+     * Fetch items by popularity
+     *
      * @param restaurantUuid
      * @return
      * @throws RestaurantNotFoundException
